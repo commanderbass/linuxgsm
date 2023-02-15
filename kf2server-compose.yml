@@ -1,0 +1,20 @@
+version: '3.4'
+services:
+  linuxgsm:
+    image: "ghcr.io/gameservermanagers/linuxgsm-docker:latest"
+    container_name: kf2server
+    environment:
+      - GAMESERVER=kf2server
+      - LGSM_GITHUBUSER=GameServerManagers
+      - LGSM_GITHUBREPO=LinuxGSM
+      - LGSM_GITHUBBRANCH=master
+    volumes:
+      - /opt/kf2server/serverfiles:/home/linuxgsm/serverfiles
+      - /opt/kf2server/log:/home/linuxgsm/log
+      - /opt/kf2server/config-lgsm:/home/linuxgsm/lgsm/config-lgsm
+    ports:
+      - "27015:27015/tcp"
+      - "27015:27015/udp"
+      - "27020:27020/udp"
+      - "27005:27005/udp"
+    restart: unless-stopped
