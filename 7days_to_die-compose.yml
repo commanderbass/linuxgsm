@@ -13,6 +13,6 @@ services:
       - /home/docker/linuxgsm/sdtdserver/log:/home/linuxgsm/log
       - /home/docker/linuxgsm/sdtdserver/config-lgsm:/home/linuxgsm/lgsm/config-lgsm
     ports:
-      - "25000:25000/udp"
-      - "26900:26900/udp"
+      - "26900:26900/tcp"
+      - "26900:26903/udp"
     restart: unless-stopped
