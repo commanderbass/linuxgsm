@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+  linuxgsm:
+    image: "ghcr.io/gameservermanagers/linuxgsm-docker:latest"
+    container_name: sdtdserver
+    environment:
+      - GAMESERVER=sdtdserver
+      - LGSM_GITHUBUSER=GameServerManagers
+      - LGSM_GITHUBREPO=LinuxGSM
+      - LGSM_GITHUBBRANCH=master
+    volumes:
+      - /home/docker/linuxgsm/sdtdserver/serverfiles:/home/linuxgsm/serverfiles
+      - /home/docker/linuxgsm/sdtdserver/log:/home/linuxgsm/log
+      - /home/docker/linuxgsm/sdtdserver/config-lgsm:/home/linuxgsm/lgsm/config-lgsm
+    ports:
+      - "25000:25000/udp"
+      - "26900:26900/udp"
+    restart: unless-stopped
