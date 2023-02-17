@@ -16,6 +16,3 @@ services:
     ports:
       - "7777:7777/udp"
       - "27015:27015/udp"
-    networks:
-      - caddy_backend
-      - frontend
