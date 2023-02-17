@@ -10,8 +10,8 @@ services:
       - LGSM_GITHUBBRANCH=master
     volumes:
       - /opt/sdtdserver/serverfiles:/home/linuxgsm/serverfiles
-      - /opt/linuxgsm/sdtdserver/log:/home/linuxgsm/log
-      - /opt/linuxgsm/sdtdserver/config-lgsm:/home/linuxgsm/lgsm/config-lgsm
+      - /opt/sdtdserver/log:/home/linuxgsm/log
+      - /opt/sdtdserver/config-lgsm:/home/linuxgsm/lgsm/config-lgsm
     ports:
       - "26900:26900/tcp"
       - "26900:26903/udp"
