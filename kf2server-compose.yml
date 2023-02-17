@@ -14,18 +14,10 @@ services:
       - /opt/kf2server/log:/home/linuxgsm/log
       - /opt/kf2server/config-lgsm:/home/linuxgsm/lgsm/config-lgsm
     ports:
-      - "27015:27015/tcp"
+      - "7777:7777/tcp"
       - "27015:27015/udp"
       - "27020:27020/udp"
       - "27005:27005/udp"
     networks:
       - caddy_backend
       - frontend
-
-networks:
-        frontend:
-                external: false
-                internal: false
-                driver: bridge
-        caddy_backend:
-                external: true
