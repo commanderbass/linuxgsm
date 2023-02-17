@@ -3,6 +3,7 @@ services:
   linuxgsm:
     image: "ghcr.io/gameservermanagers/linuxgsm-docker:latest"
     container_name: kf2server
+    restart: unless-stopped
     environment:
       - GAMESERVER=kf2server
       - LGSM_GITHUBUSER=GameServerManagers
@@ -17,4 +18,14 @@ services:
       - "27015:27015/udp"
       - "27020:27020/udp"
       - "27005:27005/udp"
-    restart: unless-stopped
+    networks:
+      - caddy_backend
+      - frontend
+
+networks:
+        frontend:
+                external: false
+                internal: false
+                driver: bridge
+        caddy_backend:
+                external: true
